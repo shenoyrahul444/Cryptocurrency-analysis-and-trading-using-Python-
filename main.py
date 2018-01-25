@@ -17,16 +17,16 @@ import tweepy    #Python client for Twitter API
 import textblob  #For Processing textual data
 from tweepy import OAuthHandler
 from textblob import TextBlob
+from keys import Keys
+
 
 class TwitterClient(object):    
     #Twitter Class for sentiment Analysis
     def __init__(self):     #Constructor
-        consumer_key = "KnAtSkrhoVM783xSuHSWtpng2"
-        consumer_secret = "OQTS2CSXio6jTAsTCAeh9NCdDk1Vp0vzhnnkVe2SkP9GjkF5xm"
-        access_token = "2445815269-OsDebyuWMjhiiLl622n07RalRbNpRuAMiZxRRsN"
-        access_token_secret = "pA0rt3QfXACOjXBDrfv1qzd7w8i3MWZSrRDD9gTs8eQPn"
         
-        #Attempt Authentication
+        keys = Keys()
+        [consumer_key,consumer_secret,access_token,access_token_secret] = keys.get_keys()
+
         try:
             #Creating OAuth Handler Object
             self.auth = OAuthHandler(consumer_key,consumer_secret)
@@ -35,9 +35,9 @@ class TwitterClient(object):
         except:
             print("Error : Authentication Failed")
 
-#    def clean_tweet(self,tweet):
-#            """This will clean the tweet            """
-#                 return ' '.join(re.sub("(@[A-Za-z0-9]+)|([^0-9A-Za-z \t])|(\w+:\/\/\S+)", " ", tweet).split())
+    def clean_tweet(self,tweet):
+            """For cleaning the tweets"""
+                 return ' '.join(re.sub("(@[A-Za-z0-9]+)|([^0-9A-Za-z \t])|(\w+:\/\/\S+)", " ", tweet).split())
 
     def get_tweet_sentiment(self,tweet):
         """Uses TextBlobs Sendtiment Analysis method to find sentiment of the tweet
