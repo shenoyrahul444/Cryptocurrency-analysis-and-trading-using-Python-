@@ -1,3 +1,7 @@
+-------------------
+Discontinued work
+-------------------
+
 # Part 1 - Cryptocurrency-Sentiment-Analysis
 Cryptocurrencies are very volatile and the price fluctions can be daunting if you are a trader with no proper strategy in investment. 
 Fluctuations are a huge opportunity, and can be taken advantage of with a proper strategy.
